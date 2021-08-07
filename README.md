@@ -2,18 +2,6 @@
 Exadel Python Course 2021 for employees.
 
 [TASKS](https://docs.google.com/document/d/1EgIJw4_dZehaOURjYDdtZI09jMlQe2AGmfneZUgxfDM/edit?usp=sharing).
-## Repository structure
-Place your solution inside `tasks` folder, create a separate folder for every task. Treat every task folder as a separate project.
-
-Example:
-```
-tasks/
-    task00/
-        hello_world.py
-    task99/
-        super_app.py
-        requirements.txt
-```
 
 ## How to get started
 1. Install Python
@@ -34,3 +22,32 @@ tasks/
     cd exadel-python-course-2021
     python tasks/task00/hello_world.py
     ```
+## Repository structure
+Place your solution inside `tasks` folder, create a separate folder for every task. Treat every task folder as a separate project.
+
+Example:
+```
+tasks/
+    task00/
+        hello_world.py
+    task99/
+        super_app.py
+        requirements.txt
+```
+
+## Solution & review workflow
+* Create a separate branch for each task like:
+    ```bash
+    git checkout -b task01
+    ```
+* Create a separate folder for your task:
+    ```
+    tasks/task01
+    ```
+* Solve it :)
+* Commit your solution to the task branch
+* Once ready with your solution:
+    * Open a Pull Request (PR) to `main` from task branch
+    * Add your mentors as PR reviewers
+    * Resolve PR comments
+    * Once PR is approved, merge it to `main` branch
