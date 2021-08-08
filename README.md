@@ -48,14 +48,14 @@ tasks/
 ## Solution & review workflow
 * Create a separate branch for each task like:
     ```bash
-    git checkout -b task01
+    git checkout -b taskXX
     ```
 * Create a separate folder for your task:
     ```
-    tasks/task01
+    tasks/taskXX
     ```
 * Solve it :)
-* Commit your solution to the task branch
+* Commit & push your solution
 * Once ready with your solution:
     * Open a Pull Request (PR) to `main` from task branch
     * Add your mentors as PR reviewers
