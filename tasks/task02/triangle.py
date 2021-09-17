@@ -7,7 +7,7 @@ while True:
     2. Calculate triangle area by 2 sides and angle between them
     3. Exit
     Enter menu item number: '''))
-    if choice == 1 or choice == 2 or choice == 3:
+    if 1 <= choice <= 3:
         if choice == 1:
             measures = input('Enter base and height: ')
             parts = measures.split(" ")
@@ -24,6 +24,7 @@ while True:
             print(f'Area is: {side1 * side2 * math.sin(math.radians(angle)) / 2:.2f}')
         elif choice == 3:
             print('Goodbye!')
+            break
     else:
         print('Number you entered is incorrect. You should enter 1 or 2 or 3')
 
