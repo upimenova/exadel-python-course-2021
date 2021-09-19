@@ -14,3 +14,4 @@ for i in word:
             print(f'{i:10} {word_count[i]:5} {texts.index(a):10d}')
             # print(i, word_count[i], texts.index(a))
             break
+
