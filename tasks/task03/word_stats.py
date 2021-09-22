@@ -1,17 +1,18 @@
 import re
 text = input('Enter list of strings: ')
-text = text.lower()
-words = text.split()
-words = [word.strip('.,?!;()[]') for word in words]
-texts = re.split('[!.?]', text)
+result = {}
 
-word_count = {i:words.count(i) for i in words}
-word = list(word_count)
-print('word           count      first line')
-for i in word:
-    for a in texts:
-        if re.search(i, a):
-            print(f'{i:10} {word_count[i]:5} {texts.index(a):10d}')
-            # print(i, word_count[i], texts.index(a))
-            break
+text_result = re.split('[!.?]', text)
+for line, texts in enumerate(text_result):
+    words = re.findall(r'\b\w+\b', texts.lower())
+
+    for word in words:
+        if word in result:
+            result[word][0] += 1
+        else:
+            result[word] = [1, line]
+
+print('word', 'count', 'first line', sep='\t\t')
+for word, word_result in result.items():
+    print(f'{word:15} {word_result[0]:5} {word_result[1]:5d}')
 
