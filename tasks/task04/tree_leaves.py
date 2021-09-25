@@ -8,10 +8,10 @@ tree = {
    },
    "node2": [7, 8, 9]
 }
+leaves = []
 
 
 def collect_leaves(leaf):
-    leaves = []
     if type(leaf) is dict:
         for key, value in leaf.items():
             if type(value) is dict:
@@ -21,15 +21,9 @@ def collect_leaves(leaf):
     else:
         for i in leaf:
             leaves.append(i)
-    print(leaves)
+    return leaves
 
 
-assert collect_leaves([1, 2, 3]) == [1, 2, 4], 'Your solution is correct!'
-collect_leaves(tree)
+# assert collect_leaves([1, 2, 3]) == [1, 2, 3], 'Your solution is incorrect!'
+print(collect_leaves(tree))
 # collect_leaves(tree) == [1, 2, 3, 31, 5, 31, 7, 8, 9]
-#
-# # edge case: flat tree, i.e. list
-# collect_leaves([1, 2, 3]) == [1, 2, 3]
-#
-# # assert example
-# assert my_pow(5, 3) == 125, “incorrect power implementation”
