@@ -1,14 +1,16 @@
-def create_user(name, surname, age = 42, **extra):
+def create_user(name, surname, age=42, **kwargs):
     user = {}
     extra = {}
     user['name'] = name
     user['surname'] = surname
     user['age'] = age
-    if extra is True:
-        for key, value in extra.items():
-            extra[key] = value
+    for key, value in kwargs.items():
+        extra[key] = value
     user['extra'] = extra
-    print(user)
+    return user
 
 
-create_user('Marie', 'Curie', age=66, occupation='physicist', won_nobel=True)
+assert create_user('John', 'Doe') == {'name': 'John', 'surname': 'Doe', 'age': 42, 'extra': {}}
+assert create_user('Bill', 'Gates', age=65) == {'name': 'Bill', 'surname': 'Gates', 'age': 65, 'extra': {}}
+assert create_user('Marie', 'Curie', age=66, occupation='physicist', won_nobel=True) ==\
+       {'name': 'Marie', 'surname': 'Curie', 'age': 66, 'extra': {'occupation': 'physicist', 'won_nobel': True}}
