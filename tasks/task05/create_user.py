@@ -4,9 +4,7 @@ def create_user(name, surname, age=42, **kwargs):
     user['name'] = name
     user['surname'] = surname
     user['age'] = age
-    for key, value in kwargs.items():
-        extra[key] = value
-    user['extra'] = extra
+    user['extra'] = kwargs
     return user
 
 
