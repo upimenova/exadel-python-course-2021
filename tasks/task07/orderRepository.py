@@ -6,7 +6,8 @@ class Good:
 
 
 class OrderRepository:
-    order_repository = []
+    def __init__(self):
+        self.order_repository = []
 
     def add(self, order):
         self.order_repository.append(order)
@@ -14,15 +15,15 @@ class OrderRepository:
     def get(self, order_id):
         for i in self.order_repository:
             if i.order_id == order_id:
-                return i
+                return i.__dict__
             else:
                 print('There is no such order!')
 
     def list(self, n_latest):
         if n_latest is None:
-            print(self.order_repository)
+            return self.order_repository
         else:
-            print(self.order_repository[:n_latest+1])
+            return self.order_repository[:n_latest+1]
 
     def delete(self, order_id):
         for i in self.order_repository:
@@ -41,9 +42,11 @@ class Order(OrderRepository):
         self.price = price
 
 
+repo = OrderRepository()
 first = Order(11, '12.12.2020', 1, 'bread', 200)
 second = Order(2, '01.08.2021', 3, 'cheese', 500)
-OrderRepository.add(OrderRepository, second)
-print(OrderRepository.get(OrderRepository, 2))
-OrderRepository.delete(OrderRepository, second)
-print(OrderRepository.get(OrderRepository, 2))
+repo.add(second)
+# print(repo.get(2))
+assert print(repo.get(2)) == {'order_id': 2, 'order_date': '01.08.2021', 'client_id': 3, 'goods': 'cheese', 'price': 500}, 'Get function is incorrect!'
+# repo.delete(second)
+# print(repo.get(2))
